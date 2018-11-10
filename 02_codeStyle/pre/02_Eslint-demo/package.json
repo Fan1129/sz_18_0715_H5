@@ -1,0 +1,23 @@
+{
+  "name": "05_Eslint-tai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:c": "eslint --init",
+    "lint": "eslint src",
+    "lint:f": "eslint src --fix"
+  },
+  "pre-commit": [
+    "lint:f",
+    "lint"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "pre-commit": "^1.2.2"
+  }
+}
