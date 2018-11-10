@@ -1,0 +1,81 @@
+﻿linux命令
+	标准的输出流：echo “str”
+	将目录下的文件平铺的输出：find 目录 -type f（file）
+	读取文件内容：cat filename
+	编辑文件内容：vim filename
+		 	---> 进入vim编辑器
+			---> 英文状态下按 i键 进入插入模式
+			--->编辑内容
+			--->英文状态下按 esc键 输入:wq 保存退出
+	清屏：clear
+	获取当前目录地下的目录树: ll
+
+
+
+git底层命令
+	存：git hash-object -w 文件名
+	读：git cat-file -p（-t） hash值
+	更新暂存区： update-index
+	生成快照（树对象）： write-tree
+	生成提交对象：commit-tree
+
+
+git基本命令
+    初始化仓库：git init
+	观察当前目录地下文件的状态：git status
+        增改
+            将工作目录的文件 纳入到 暂存区：git add 文件名/目录
+            将暂存区的数据打包成提交对象 提到 本地库：git commit
+                git commit ---> 进入vim编辑器
+                git commit -m "message" ---》 不进入vim编辑器
+                git commit -a -m "message" ---》跳过暂存区（针对已跟踪文件）
+        删
+            首先删除工作目录的文件
+            git rm  文件名 （只是告诉暂存区下一次生成快照时移除对应的文件的指针）
+            git commit
+
+            git mv
+                rm + add
+        查
+            git log
+            git log --oneline
+
+            git diff
+                没暂存的修改
+            git diff --staged
+                已暂存的修改
+
+分支命令
+    Git 的分支，其实本质上仅仅是指向提交对象的可变指针
+
+
+    git branch 分支名：创建分支
+    git branch -d
+    git branch -D :删除分支
+    git branch ： 查看分支列表
+    git branch -v ：查看每一个分支的最后一次提交
+
+    git log --oneline –decorate：查看当前分支所指提交对象的历史记录
+    git log --oneline –decorate --graph --all ：完整的分支图
+
+    git checkeout 分支名     ：切换到对应分支上
+    git checkeout -b 新的分支名： 创建新的分支并切换过去
+
+    git merge 分支名
+
+撤销命令
+    git checkout filename
+        撤销工作目录的上一次修改
+    git reset filename
+        撤销暂存区的上一次add
+    git commit --amend
+        撤销上一次提交
+
+远程操作
+    git remote name url ：取别名
+    git clone url ：克隆仓库
+    git push name branch：推送
+	
+
+
+
