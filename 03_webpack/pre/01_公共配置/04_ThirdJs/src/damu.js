@@ -1,0 +1,2 @@
+$("#wrap").addClass('damu66')
+

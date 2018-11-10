@@ -1,0 +1,21 @@
+{
+  "name": "02_ES67",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^6.0.4",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
+}

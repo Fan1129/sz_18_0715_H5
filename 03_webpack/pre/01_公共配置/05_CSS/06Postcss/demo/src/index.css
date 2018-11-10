@@ -1,0 +1,7 @@
+@import "./reset.css";
+#app{
+    display: flex;
+}
+#app div{
+    flex: 1;
+}
