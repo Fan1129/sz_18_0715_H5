@@ -1,0 +1,24 @@
+.juzhong {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+#test {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  transition: 2s;
+  width: 200px;
+  height: 200px;
+  background: pink;
+}
+div {
+  display: flex;
+}

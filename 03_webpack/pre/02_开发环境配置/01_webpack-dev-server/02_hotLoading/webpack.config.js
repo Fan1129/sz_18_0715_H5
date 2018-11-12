@@ -1,0 +1,69 @@
+const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack");
+module.exports={
+    entry:{
+        tai:`${__dirname}/taiUi/tai.js`
+    },
+    output:{
+        filename:"tai.min.js",
+        path:path.resolve(__dirname,"dist")
+    },
+    devServer:{
+        port:3333,
+        publicPath:"/test/",
+        hot:true,
+        hotOnly:true
+    },
+    module:{
+        rules:[
+            {
+                test:/\.less$/,
+                use:[
+                    {
+                        loader:'style-loader'
+                    },
+                    {
+                        loader:'css-loader',
+                    },
+                    {
+                        loader:'less-loader',
+                    }
+                ]
+            },
+            {
+                test:/\.(jpg|png|gif|jpeg)$/,
+                use:[
+                    {
+                        loader:"url-loader",
+                        options:{
+                            limit:10000,
+                            name:"[path][name].[ext]"
+                        }
+                    },
+                    {
+                        loader:"img-loader"
+                    }
+                ]
+            },
+            {
+                test:/\.html$/,
+                use:[
+                    {
+                        loader:'html-loader',
+                        options:{
+                            attrs:['img:src']
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    plugins:[
+        new HtmlWebpackPlugin({
+            filename:"index.html",
+            template:"./tai.html"
+        }),
+        new webpack.HotModuleReplacementPlugin()
+    ]
+}
