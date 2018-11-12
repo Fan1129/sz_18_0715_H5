@@ -1,0 +1,23 @@
+{
+  "name": "07_img",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.3.1",
+    "css-loader": "^0.28.8",
+    "file-loader": "^2.0.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^3.10.0"
+  }
+}

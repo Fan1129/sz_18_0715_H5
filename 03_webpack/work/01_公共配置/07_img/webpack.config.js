@@ -1,0 +1,44 @@
+var path = require("path");
+var webpack = require("webpack");
+module.exports={
+    entry:`${__dirname}/app.js`,
+    output:{
+        path:path.resolve(__dirname,"dist"),//输出目录
+        filename: "js/index.js"
+    },
+    module:{
+      rules:[
+          {
+              test:/\.less/,
+              use:[
+                  {
+                      loader:"style-loader",
+                  },
+                  {
+                      loader:"css-loader",
+                  },
+                  {
+                      loader:"postcss-loader",
+                  },
+                  {
+                      loader:"less-loader",
+                  }
+              ]
+          },
+          {
+              test:/\.(jpg|jpeg|png|gif)$/,
+              use:[
+                  {
+                      loader:"url-loader",
+                      options:{
+                          publicPath:"./dist/img",//发布目录
+                          outputPath:"img",
+                          name:"[name].[hash:8].[ext]",
+                          limit:10000
+                      }
+                  }
+              ]
+          }
+      ]
+    }
+}
