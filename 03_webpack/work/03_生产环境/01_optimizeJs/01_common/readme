@@ -1,0 +1,17 @@
+ minChunks:2
+    :当公共代码出现多少次时 我们才需要提取
+
+
+
+ 单entry
+    name:"common"
+        : 将A入口的所有代码都打到了一个单独的文件里去
+        ：将webpack的runtime代码也打到了一个单独的文件里去了
+            在单entry的情况下CommonsChunkPlugin只能帮我们剥离webpack的runtime代码
+
+            将COMMON.js的代码单独剥离出来（需要webpack帮我们提供接口来处理这个文件）
+
+ 多entry
+    name:"common"
+        : 将A B入口的代码都打到了一个单独的文件里去(A.JS  B.JS)
+        ：将webpack的runtime代码和AB的公共代码也打到了一个单独的文件里去了

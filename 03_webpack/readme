@@ -1,0 +1,14 @@
+###day01
+    git
+###day02
+    gitHub
+###day03
+    eslint + editconfig
+    webpack的公共配置
+###day04
+    webpack的开发环境
+        快 打包速度快
+        准 bug定位准
+###day05
+    webpack的生产环境
+        性能优化！！！

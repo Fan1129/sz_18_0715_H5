@@ -10,7 +10,7 @@ module.exports={
     },
     devServer:{
       port:3333,
-      publicPath:"/test/",
+      // publicPath:"/test/",
       hot:true,
       hotOnly:true,
       overlay:true
@@ -80,7 +80,7 @@ module.exports={
         new webpack.HotModuleReplacementPlugin(),
         new htmlWebpackPlugin({
             template:`${__dirname}/src/tai.html`,
-            filename:"tai.html"
+            filename:"index.html"
         }),
         new CopyWebpackPlugin([{ from: `${__dirname}/src/static`, to: `${__dirname}/dist/static` }])
     ]

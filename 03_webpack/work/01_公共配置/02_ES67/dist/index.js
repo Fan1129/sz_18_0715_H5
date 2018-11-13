@@ -9620,9 +9620,6 @@ Object.defineProperty(exports, "__esModule", {
 
 exports.default = function () {
     var set1 = new Set([1, 2, 3]);
-    set1.add(4);
-    set1.delete(1);
-
     var _iteratorNormalCompletion = true;
     var _didIteratorError = false;
     var _iteratorError = undefined;
@@ -9648,59 +9645,7 @@ exports.default = function () {
         }
     }
 
-    var _iteratorNormalCompletion2 = true;
-    var _didIteratorError2 = false;
-    var _iteratorError2 = undefined;
-
-    try {
-        for (var _iterator2 = set1.values()[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-            var item = _step2.value;
-
-            console.log(item);
-        }
-    } catch (err) {
-        _didIteratorError2 = true;
-        _iteratorError2 = err;
-    } finally {
-        try {
-            if (!_iteratorNormalCompletion2 && _iterator2.return) {
-                _iterator2.return();
-            }
-        } finally {
-            if (_didIteratorError2) {
-                throw _iteratorError2;
-            }
-        }
-    }
-
-    var _iteratorNormalCompletion3 = true;
-    var _didIteratorError3 = false;
-    var _iteratorError3 = undefined;
-
-    try {
-        for (var _iterator3 = set1.entries()[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-            var item = _step3.value;
-
-            console.log(item);
-        }
-    } catch (err) {
-        _didIteratorError3 = true;
-        _iteratorError3 = err;
-    } finally {
-        try {
-            if (!_iteratorNormalCompletion3 && _iterator3.return) {
-                _iterator3.return();
-            }
-        } finally {
-            if (_didIteratorError3) {
-                throw _iteratorError3;
-            }
-        }
-    }
-
-    set1.forEach(function (item) {
-        console.log(item + "--");
-    });
+    console.log(set1);
 };
 
 /***/ })
