@@ -1,6 +1,17 @@
  minChunks:2
     :当公共代码出现多少次时 我们才需要提取
 
+ 错误的配置
+            new webpack.optimize.CommonsChunkPlugin({
+                name:"A" // entry chunk
+            }),
+            new webpack.optimize.CommonsChunkPlugin({
+                name:"B"
+            }),
+            new webpack.optimize.CommonsChunkPlugin({
+                name:"webpackcommon" // common chunk
+            }),
+
 
 
  单entry
@@ -15,3 +26,9 @@
     name:"common"
         : 将A B入口的代码都打到了一个单独的文件里去(A.JS  B.JS)
         ：将webpack的runtime代码和AB的公共代码也打到了一个单独的文件里去了
+
+    name:"buscommon"
+    name:"webpackcommon"
+         : 将A B入口的代码都打到了一个单独的文件里去(A.JS  B.JS)
+         : 将A B的公共业务代码打到buscommon
+         ：将webpack的runtime代码到webpackcommon
