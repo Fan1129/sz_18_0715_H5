@@ -1,0 +1,12 @@
+#test {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 200px;
+  height: 200px;
+  background: pink;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}

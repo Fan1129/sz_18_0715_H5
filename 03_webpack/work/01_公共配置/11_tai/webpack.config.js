@@ -1,11 +1,13 @@
 const path = require("path");
+const webpack = require("webpack");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 module.exports={
     entry:`${__dirname}/src/taiUi/tai.js`,
     output:{
-        path:path.resolve(__dirname,"dist"),
+        path:path.resolve(__dirname,"dist3"),
         filename:"index.js"
     },
     module:{
@@ -46,6 +48,9 @@ module.exports={
                             outputPath:"img",
                             // publicPath:"img/"
                         }
+                    },
+                    {
+                        loader: 'image-webpack-loader',
                     }
                 ]
             },
@@ -55,7 +60,8 @@ module.exports={
                     {
                         loader:"html-loader",
                         options:{
-                            attrs:["img:src"]
+                            attrs:["img:src"],
+                            minimize: true
                         }
                     }
                 ]
@@ -67,6 +73,8 @@ module.exports={
             template:`${__dirname}/src/tai.html`,
             fileName:"index.html"
         }),
+        new OptimizeCssAssetsPlugin(),
+        new webpack.optimize.UglifyJsPlugin(),
         new CopyWebpackPlugin([{ from: `${__dirname}/src/static`, to: `${__dirname}/dist/static` }]),
         new CleanWebpackPlugin("./dist")
     ]
