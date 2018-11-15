@@ -1,0 +1,14 @@
+{{}}
+v-model
+v-for
+v-on:click  @click
+v-bind:class  :class
+v-text
+v-html
+v-if
+v-if-else
+v-else
+v-show
+v-pre
+v-cloak
+v-once
