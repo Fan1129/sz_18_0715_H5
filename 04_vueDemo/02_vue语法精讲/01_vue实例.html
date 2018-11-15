@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+    <!--
+        1. 所有配置对象的data对象属性的属性都会转绑给vm实例对象
+        2.一个vue实例就是一个组件
+        3.vue实例的属性
+                $root $el $options $data
+        4.vue实例的方法$mount $on $once  $off $emit
+    -->
+</head>
+<body>
+    <div id="app">
+        <!--<p>{{msg}}</p>-->
+    </div>
+</body>
+<script>
+    var vm =  new Vue({
+        // el:"#app",
+        template:"<p>{{msg}}</p>",
+        data:{
+            msg:"helloWold"
+        }
+    })
+
+    console.log(vm.$root === vm)
+    console.log(vm.$el)
+    console.log(vm.$options)
+    console.log(vm.$data)
+
+    vm.msg = "xxx";
+    vm.$data.msg="yyy";
+    vm.$options.data.msg="zzz"
+
+    vm.$mount("#app")
+
+</script>
+</html>

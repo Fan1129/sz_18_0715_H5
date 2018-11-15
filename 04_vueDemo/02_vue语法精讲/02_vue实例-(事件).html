@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+    <!--
+        $on $once  $off $emit
+    -->
+</head>
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script>
+    var vm =  new Vue({
+        template:"<p>{{msg}}</p>",
+        data:{
+            msg:"helloWold"
+        }
+    })
+
+    vm.$mount("#app");
+
+
+    /*vm.$once("damu",()=>{
+        console.log("damu1")
+    })
+    vm.$once("damu",()=>{
+        console.log("damu2")
+    })
+    setInterval(()=>{
+        vm.$emit("damu")
+    })*/
+
+    function damu(){
+        console.log("damu")
+    }
+    function damuson(){
+        console.log("damuson")
+    }
+    vm.$on("damu",damu)
+    vm.$on("damu",damuson)
+    vm.$on("xfz",()=>{
+        console.log("xfz")
+    })
+    setInterval(()=>{
+        vm.$emit("damu");
+        vm.$emit("xfz");
+    })
+
+    setTimeout(()=>{
+        vm.$off("damu",damu)
+    },3000)
+
+
+
+</script>
+</html>
