@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        .test{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+    </style>
+    <!--dom事件相关的指令-->
+</head>
+<body>
+    <div id="app">
+        <div class="test"  @click="handleClick('click',$event)">
+            {{msg}}
+        </div>
+    </div>
+</body>
+<script>
+    var b = "b";
+    var vm =  new Vue({
+        el:"#app",
+        data:{
+            msg:"helloWold"
+        },
+        methods:{
+            handleClick(msg,ev){
+                console.log(msg,ev.target.innerHTML)
+            }
+        }
+    })
+
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        .wrap{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+        .inner{
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+    </style>
+    <!--dom事件相关的指令-->
+</head>
+<body>
+    <div id="app">
+        <a href="http://www.baidu.com" @click.prevent="handleC">李彦宏</a>
+
+        <div class="wrap" @click="handleW">
+            <div class="inner" @click.stop="handleI">
+
+            </div>
+        </div>
+
+        <input type="text" @keyup.space="handleInput">
+    </div>
+</body>
+<script>
+    var b = "b";
+    var vm =  new Vue({
+        el:"#app",
+        data:{
+            msg:"helloWold"
+        },
+        methods:{
+            handleC(ev){
+                alert("dsg");
+            },
+            handleW(){
+                alert("Wrap");
+            },
+            handleI(ev){
+                alert("Inner");
+            },
+            handleInput(){
+                alert("handleInput");
+            }
+        }
+    })
+
+</script>
+</html>
