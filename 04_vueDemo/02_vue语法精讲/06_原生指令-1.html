@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+        <!--
+            {{}}  v-text（innerText）  v-html(innerHtml)
+            v-for
+            v-on:事件名（@事件名）
+            v-bind:标签属性 （:标签属性）
+        -->
+
+    <!--{{}}:
+        放 data中定义的属性
+        放一些浏览器的全局对象（vue 白名单）
+        切记不可以放自己定义的全局变量-->
+</head>
+<body>
+    <div id="app">
+        <p>{{msg==="helloWold"?"你好":"拜拜"}}</p> <!-- js单行表达式 三目运算符 -->
+        <p>{{new Date()}}</p>
+        <p>{{b}}</p>
+        <p v-text="msg"></p>
+        <p v-html="msg"></p>
+    </div>
+</body>
+<script>
+    var b = "b";
+    var vm =  new Vue({
+        el:"#app",
+        data:{
+            // msg:"<h1>helloWold<h1>"
+            msg:"helloWold"
+        }
+    })
+
+</script>
+</html>

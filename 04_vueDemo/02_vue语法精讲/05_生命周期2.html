@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+    <!--ajax请求一般在mounted是去发生  在mounted之后一般不能去修改vm.$el-->
+
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+    </div>
+</body>
+<script>
+    var flag =0;
+    var vm =  new Vue({
+        el:"#app",
+        data:{
+            msg:"helloWold"
+        },
+
+        mounted:function () {
+            this.clearTime = setInterval(()=>{
+                console.log("setInterval")
+                flag++;
+                this.msg += flag;
+            },1000)
+
+            setTimeout(()=>{
+                vm.$destroy()
+            },5000)
+        },
+        beforeDestroy:function () {
+           clearInterval(this.clearTime)
+        }
+    })
+
+</script>
+</html>
