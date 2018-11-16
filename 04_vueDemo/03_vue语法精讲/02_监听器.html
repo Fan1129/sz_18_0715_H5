@@ -26,12 +26,17 @@
             firstName(val){
                 console.log("-watch--firstName-")
                 this.fullName = `${val}-${this.lastName}`
-            },
-            lastName(val){
-                console.log("-watch--lastName-")
-                this.fullName = `${this.firstName}-${val}`
             }
         }
     });
+
+/*    vm.$watch("lastName",(val)=>{
+        console.log("-watch--lastName-")
+        vm.fullName = `${vm.firstName}-${val}`
+    })*/
+    vm.$watch("lastName",function(val){
+        console.log("-watch--lastName-")
+        this.fullName = `${this.firstName}-${val}`
+    })
 </script>
 </html>

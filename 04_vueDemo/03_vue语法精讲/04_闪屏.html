@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+   <p v-cloak>{{msg}}</p>
+    <p v-cloak>{{msg}}</p>
+    <p v-cloak>{{msg}}</p>
+    <p v-cloak>{{msg}}</p>
+</div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:new Date()
+        }
+    });
+</script>
+</html>

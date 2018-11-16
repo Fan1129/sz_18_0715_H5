@@ -10,7 +10,7 @@
         lastName: <input type="text" v-model="lastName" > <br>
         test:<input type="text" v-model="test" > <br>
         fullName: <input type="text" v-model="fullName()"> <br>
-        <p>{{age}}</p>
+        <p @click="handleC">{{age}}</p>
     </div>
 </body>
 <script src="./js/vue.js"></script>
@@ -27,6 +27,9 @@
             fullName(){
                 console.log("methods") // 调用2次
                 return `${this.firstName }-${this.lastName}-${this.test}`;
+            },
+            handleC(){
+                console.log("handleC")
             }
         }
     });
