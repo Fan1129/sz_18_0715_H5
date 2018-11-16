@@ -9,7 +9,6 @@
         fistName: <input type="text" v-model="firstName" > <br>
         lastName: <input type="text" v-model="lastName" > <br>
         fullName: <input type="text" v-model="fullName"> <br>
-        <p>{{age}}</p>
     </div>
 </body>
 <script src="./js/vue.js"></script>
@@ -22,15 +21,17 @@
             age:18
         },
         computed:{
-            // 1. 初始化
-            // 2.关联属性产生变化的时候
-            fullName(){
-                console.log("computed")
-                return this.firstName + "-"+this.lastName
+            fullName:{
+                get:function(){
+                    return this.firstName + "-"+this.lastName
+                },
+                set(val){
+                    var arr = val.split("-");
+                    this.firstName = arr[0];
+                    this.lastName = arr[1];
+                }
             }
         }
     });
-
-    console.log(vm.$options)
 </script>
 </html>
