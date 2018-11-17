@@ -73,6 +73,10 @@ Compile.prototype = {
         compileUtil.text(node, this.$vm, exp);
     },
 
+
+
+
+
     isDirective: function(attr) {
         return attr.indexOf('v-') == 0;
     },
@@ -152,12 +156,13 @@ var compileUtil = {
     _setVMVal: function(vm, exp, value) {
         var val = vm._data;
         exp = exp.split('.');
+        // damu.age  0 1
         exp.forEach(function(k, i) {
-            // 非最后一个key，更新val的值
+            // 非最后一个key，更新val的值    exp.length：2
             if (i < exp.length - 1) {
                 val = val[k];
             } else {
-                val[k] = value;
+                val[k] = value; // 触发了set方法
             }
         });
     }

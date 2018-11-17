@@ -36,13 +36,17 @@
 <!--    1. this.$compile = new Compile(options.el || document.body, this)
         -&#45;&#45;》
             this.$fragment = this.node2Fragment(this.$el);
-            this.init();//真正做解析
+            this.01_init();//真正做解析
             this.$el.appendChild(this.$fragment);
 
-    2.this.init()
+    2.this.01_init()
             -&ndash;&gt; compileElement
                     -&#45;&#45;是元素子节点-&ndash;&gt; compile
+
                     -&#45;&#45;是满足{{}}的文本节点 -&ndash;&gt;compileText
+
+
+
 
     3.compileText
             -&ndash;&gt; compileUtil (根据指令不同找到的工具类也不同)
@@ -68,6 +72,6 @@
         text
         compileText
         compileElement
-        init
+        01_init
         Compile-->
 </html>

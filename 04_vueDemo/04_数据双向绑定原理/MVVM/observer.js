@@ -16,6 +16,8 @@ Observer.prototype = {
     defineReactive: function(data, key, val) {
         //每一个data中的属性（包括深层次属性都一个dep闭包）
         var dep = new Dep();
+
+
         var childObj = observe(val);
 
 
