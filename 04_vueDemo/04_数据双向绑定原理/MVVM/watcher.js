@@ -31,8 +31,9 @@ Watcher.prototype = {
         return value;
     },
 
+    //构建dep和watcher的关系
     getVMVal: function() {
-    	
+    	// damu.wife
         var exp = this.exp.split('.');
         var val = this.vm._data;
         exp.forEach(function(k) {

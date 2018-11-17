@@ -67,7 +67,6 @@ Dep.prototype = {
     },
 
     depend: function() {
-    	//多对多关系函数
         Dep.target.addDep(this);
     },
 
