@@ -1,0 +1,35 @@
+vue的计算属性
+    计算属性所对应的函数什么时候被执行？
+        1.初始化
+        2.当关联data产生变化的时候
+        3.利用缓存
+    computed:{
+        atrr(){
+
+        },
+        arr2:{
+            get(){},
+            set(){}
+        }
+    }
+
+vue的监听器
+    配置 watch
+    vm.$watch()
+
+vue的过滤器
+    日期格式化
+
+vue自定义指令
+    配置directives
+
+ref
+    特殊标记 用于以后获取元素dom节点
+                    vm.$refs["ref"]
+
+
+分析了vue的数据代理
+        将配置对象的data对象属性的属性 一一 获取到，然后通过Object.defineProperty()再一一转绑给vm
+      vue的{{}}的解析
+        bind方法 --> 找到对应的更新器 执行更新器（_getVMval）
+

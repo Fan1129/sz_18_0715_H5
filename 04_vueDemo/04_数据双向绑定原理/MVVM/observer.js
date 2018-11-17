@@ -14,9 +14,12 @@ Observer.prototype = {
         this.defineReactive(this.data, key, val);
     },
     defineReactive: function(data, key, val) {
+        //每一个data中的属性（包括深层次属性都一个dep闭包）
         var dep = new Dep();
         var childObj = observe(val);
 
+
+        //真正的数据劫持的代码
         Object.defineProperty(data, key, {
             enumerable: true, // 可枚举
             configurable: false, // 不能再define
@@ -42,6 +45,7 @@ Observer.prototype = {
 };
 
 //value是配置对象的data属性
+//vm
 function observe(value, vm) {
     if (!value || typeof value !== 'object') {
         return;
