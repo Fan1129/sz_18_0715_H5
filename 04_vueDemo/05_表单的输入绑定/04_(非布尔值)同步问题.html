@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <!--
+            布尔值属性
+            非布尔值属性
+                property是否是布尔值
+            -->
+
+        <!--非布尔值属性的同步问题
+                attribut 和 property都是实时同步
+        -->
+</head>
+<body>
+    <input name="xfz0" type="checkbox" checked="checked" xfz="xfz" >
+</body>
+<script>
+    var node = document.querySelector("input");
+
+    node.name="xfz4"
+    node.name="xfz5"
+    node.name="xfz6"
+
+    node.setAttribute("name","xfz1")
+    node.setAttribute("name","xfz2")
+    node.setAttribute("name","xfz3")
+
+
+
+
+
+</script>
+</html>

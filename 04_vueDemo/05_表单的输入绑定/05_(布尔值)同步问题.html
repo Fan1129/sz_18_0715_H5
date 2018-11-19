@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <!--
+            布尔值属性
+            非布尔值属性
+                property是否是布尔值
+            -->
+
+        <!--非布尔值属性的同步问题
+                attribute 和 property都是实时同步
+        -->
+
+        <!--布尔值属性的同步问题
+                property不会同步attribute
+
+                如果没有改过property
+                    attribute会同步property
+                一旦改过property
+                    attribute就不会同步property
+        -->
+
+        <!--浏览器认谁？
+                property
+        用户改谁？
+                property-->
+
+</head>
+<body>
+    <input name="xfz0" type="checkbox"  xfz="xfz" >
+</body>
+<script>
+    var node = document.querySelector("input");
+
+    node.setAttribute("checked","xfz1")
+    node.setAttribute("checked","xfz2")
+    node.setAttribute("checked","xfz3")
+
+
+    node.checked = false;
+
+    node.setAttribute("checked","xfz4")
+
+
+
+
+
+
+
+</script>
+</html>
