@@ -9,39 +9,44 @@
 </head>
 <body>
     <div id="app">
-        <child :msg="'damu'"></child>
-        <child :msg="'xfz'"></child>
+        <child :msg="name1"></child>
+        <child :msg="name2"></child>
     </div>
 </body>
 <script src="js/vue.js"></script>
 <script>
 
-    var child = {
+    var child={
         props:["msg"],
-        template:`<p @click="handleC">{{selfMsg}}</p>`,
         data(){
-            return {
-                selfMsg:this.msg
-            }
+          return{
+              selfmsg:this.msg
+          }
         },
+        template:`<p @click="handleC">{{selfmsg}}</p>`,
         methods:{
             handleC(){
-                this.bus.$emit("change",this.selfMsg)
+                this.bus.$emit("change",this.selfmsg)
             }
         },
         mounted(){
-            this.bus.$on("change",(msg) =>{
-                this.selfMsg = msg;
+            this.bus.$on("change",(selfmsg) => {
+                this.selfmsg = selfmsg;
             })
         }
     }
 
     Vue.prototype.bus = new Vue();
-    var vm = new Vue({
+    var app = new Vue({
         el:"#app",
+        data:{
+            name1:"damu",
+            name2:"xfz"
+        },
         components:{
             child
         }
     })
+
 </script>
 </html>

@@ -7,35 +7,32 @@
 <body>
 <div id="app">
     <child>
-        <header slot="header">{{root}}</header>
-        <footer slot="footer">footer</footer>
+        <foot-down slot="up"></foot-down>
+        <head-up slot="down"></head-up>
     </child>
 </div>
 </body>
+<script src="componet/foot.js"></script>
+<script src="componet/head.js"></script>
 <script src="js/vue.js"></script>
 <script type="application/javascript">
 
+
+
     var child={
-        data(){
-            return {
-                header:"xxx",
-                msg:"hello"
-            }
-        },
         template:`<div>
-                        <slot name="header">xxxx</slot>
-                        <p>{{msg}}</p>
-                        <slot name="footer">xxxx</slot>
-                    </div>`,
+                       <slot name="up">xxx</slot>
+                       <p>吴叶涛</p>
+                       <slot name="down">xxx</slot>
+                    </div> `,
     }
 
     var app = new Vue({
         el:"#app",
-        data:{
-          root:"root header"
-        },
         components:{
-            child
+            child,
+            footDown,
+            headUp
         }
     })
 

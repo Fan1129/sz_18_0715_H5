@@ -4,32 +4,48 @@
     <meta charset="UTF-8">
     <title>02_ref属性-1</title>
     <!--
-        子组件如何向父组件传值
-            通过props传递方法
+       1.子向父传值的方式
+            父亲向儿子传一个props  这个props是一个函数
     -->
+    <style>
+        .count,p{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border-radius: 50% ;
+            line-height: 100px;
+            text-align: center;
+        }
+        p{
+            background: green;
+        }
+    </style>
+
 </head>
 <body>
-    <div id="app">
-        <counter :number="1" :change="change" ></counter>
-        <counter :number="2" :change="change" ></counter>
-        <p>{{total}}</p>
-    </div>
+<div id="app">
+    <counter class="count" :fn="fatherCount"></counter>
+    <counter class="count" :fn="fatherCount"></counter>
+    <p>{{total}}</p>
+</div>
 </body>
 <script src="js/vue.js"></script>
 <script type="application/javascript">
 
-    var counter ={
-        props:["number","change"],
-        template:`<p @click="handleClick">{{counter}}</p>`,
+    var counter={
+        props:{
+            fn:Function
+        },
+        template:`<p @click="handleC">{{count}}</p>`,
         data(){
-            return {
-                counter:this.number
+            return{
+                count:0
             }
         },
         methods:{
-            handleClick(){
-                this.counter++;
-                this.change(1);
+            handleC(){
+                this.count+=2;
+                this.fn(2);
             }
         }
     }
@@ -37,18 +53,17 @@
     var app = new Vue({
         el:"#app",
         data:{
-            total:3
+            total:0
         },
         components:{
             counter
         },
         methods:{
-            change(count){
-               this.total += count
-           }
+            fatherCount(step){
+                this.total += step;
+            }
         }
-   })
-
+    })
 
 </script>
 </html>

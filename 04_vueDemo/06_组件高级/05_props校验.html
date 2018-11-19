@@ -15,8 +15,8 @@
             则 Vue 会在浏览器控制台中警告你。这在开发一个会被别人用到的组件时尤其有帮助
 
             验证方式：
-                    props:[] 数组；数组的每一项表示接受哪些父组件传过来的属性（无法做验证）
-                    props:{} 对象；通过键值对的形式表示接受哪些父组件传过来的属性
+                    props:[] 数组；数组的每一项表示接受父组件传过来的哪些属性（无法做验证）
+                    props:{} 对象；通过键值对的形式表示接受父组件传过来的哪些属性
                                         key ：哪些属性
                                         value：验证规则
 
@@ -50,33 +50,28 @@
         Symbol-->
 </head>
 <body>
-<div id="app">
-    <counter :number="1"></counter>
-    <counter :number="2"></counter>
-</div>
+    <div id="app">
+        <child :msg="123"></child>
+    </div>
 </body>
 <script src="js/vue.js"></script>
 <script type="application/javascript">
-
-    var counter ={
-        props:["number"],
-        template:`<p @click="handleClick">{{counter}}</p>`,
-        data(){
-            return {
-                counter:this.number
+    Vue.component("child",{
+        props:{
+            msg:{
+                type:Number,
+                validator: function (value) {
+                    return value > 100
+                }
             }
         },
-        methods:{
-            handleClick(){
-                this.counter++;
-            }
-        }
-    }
+        template:`<p>{{msg}}</p>`
+    });
 
     var app = new Vue({
         el:"#app",
-        components:{
-            counter
+        data:{
+            msg:"城市套路深 我要回农村 农村路更滑 人心更复杂"
         }
     })
 

@@ -8,10 +8,7 @@
 <div id="app">
     <to-do-list>
         <template slot-scope="slotProps">
-            <!-- 为待办项自定义一个模板，-->
-            <!-- 通过 `slotProps` 定制每个待办项。-->
-            <span>✓ ---</span>
-            {{ slotProps.item }}
+            🐱 {{slotProps.item}}
         </template>
     </to-do-list>
 </div>
@@ -20,30 +17,29 @@
 <script type="application/javascript">
 
     var toDoList={
+        template:`
+               <ul>
+                    <li v-for="item in list">
+                        <slot :item="item">
+                            {{item}}
+                        </slot>
+                    </li>
+                </ul>
+        `,
         data(){
-            return{
-                list:[
-                    "xxx-1",
-                    "xxx-2",
-                    "xxx-3"
-                ]
+            return {
+                list:["xx-1","xx-2","xx-3","xx-4"]
             }
-        },
-        template:`<ul>
-                        <li v-for="item in list">
-                            <slot :item="item">
-                                {{item}}
-                            </slot>
-                        </li>
-                    </ul>`,
+        }
+
     }
 
-    var app = new Vue({
-        el:"#app",
-        components:{
-            toDoList
-        }
-    })
+   new Vue({
+       el:"#app",
+       components:{
+           toDoList
+       }
+   })
 
 </script>
 </html>
