@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02_ref属性-1</title>
+</head>
+<body>
+<div id="app">
+    <child>
+        <header slot="header">{{root}}</header>
+        <footer slot="footer">footer</footer>
+    </child>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script type="application/javascript">
+
+    var child={
+        data(){
+            return {
+                header:"xxx",
+                msg:"hello"
+            }
+        },
+        template:`<div>
+                        <slot name="header">xxxx</slot>
+                        <p>{{msg}}</p>
+                        <slot name="footer">xxxx</slot>
+                    </div>`,
+    }
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+          root:"root header"
+        },
+        components:{
+            child
+        }
+    })
+
+</script>
+</html>

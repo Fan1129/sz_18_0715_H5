@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02_ref属性-1</title>
+</head>
+<body>
+<div id="app">
+    <to-do-list>
+        <template slot-scope="slotProps">
+            <!-- 为待办项自定义一个模板，-->
+            <!-- 通过 `slotProps` 定制每个待办项。-->
+            <span>✓ ---</span>
+            {{ slotProps.item }}
+        </template>
+    </to-do-list>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script type="application/javascript">
+
+    var toDoList={
+        data(){
+            return{
+                list:[
+                    "xxx-1",
+                    "xxx-2",
+                    "xxx-3"
+                ]
+            }
+        },
+        template:`<ul>
+                        <li v-for="item in list">
+                            <slot :item="item">
+                                {{item}}
+                            </slot>
+                        </li>
+                    </ul>`,
+    }
+
+    var app = new Vue({
+        el:"#app",
+        components:{
+            toDoList
+        }
+    })
+
+</script>
+</html>
