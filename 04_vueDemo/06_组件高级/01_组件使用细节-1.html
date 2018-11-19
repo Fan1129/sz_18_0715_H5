@@ -22,22 +22,25 @@
 <body>
     <div id="app">
         <table>
-            <tr is="Row"></tr>
+            <tr is="row"></tr>
         </table>
     </div>
 </body>
 <script src="js/vue.js"></script>
 <script type="application/javascript">
-   Vue.component("Row",{
-       template:`<tr>
-                  <td>1-1</td>
-                  <td>1-2</td>
-              </tr>`
-   });
 
+    var row = {
+        template:`<tr>
+               <td>1-1</td>
+               <td>1-2</td>
+           </tr>`
+    }
 
    new Vue({
-       el:"#app"
+       el:"#app",
+       components:{
+           row
+       }
    })
 </script>
 </html>

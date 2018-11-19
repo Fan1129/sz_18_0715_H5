@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <title>02_ref属性-1</title>
     <!--
-        ref 被用来给元素或子组件注册引用信息的。引用信息将会注册在父组件的 $refs 对象上。
-        如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；
-        如果用在子组件上，引用就指向组件实例
+       组件上的所有事件都是vue自定义事件
     -->
 </head>
 <body>
 <div id="app">
-    <!--给组件绑的事件都是自定义事件-->
-    <counter class="red" @click="handleC"></counter>
+    <counter @click="handleC"></counter>
 </div>
 </body>
 <script src="js/vue.js"></script>
@@ -27,7 +24,7 @@
         },
         methods:{
             handleC(){
-                console.log("counter");
+                console.log("counter - handleC");
                 // this.$emit("click")
             }
         }
@@ -37,7 +34,7 @@
         el:"#app",
         methods:{
             handleC(){
-                console.log("root")
+                console.log("root - handleC")
             }
         }
     })
