@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--如何定义组件-->
+    <!--
+        全局组件
+            Vue.component("name",{});
+        局部组件
+            配置对象中的components属性
+                components:{
+                    key(组件名):val(组件对象)
+                }
+
+        组件名称：
+                  定义时：每个单词的首字母都要大写
+                  使用时：用-连接符来连接
+   -->
+</head>
+<body>
+    <div id="app">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <component-a></component-a>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script type="application/javascript">
+    //全局组件
+    Vue.component('button-counter', {
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+    })
+
+    var ComponentA={
+        data(){
+            return {
+                msg:"xxx"
+            }
+        },
+        template:`<div>{{msg}}</div>`
+    }
+
+    var vm = new Vue({
+        el:"#app",
+        components:{
+            'component-a': ComponentA,
+        }
+    })
+</script>
+</html>

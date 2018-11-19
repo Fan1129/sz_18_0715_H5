@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02_ref属性-1</title>
+    <!--
+        子组件如何向父组件传值
+            通过事件的形式
+    -->
+</head>
+<body>
+    <div id="app">
+        <counter :number="1" @change="handleChange" ></counter>
+        <counter :number="2" @change="handleChange" ></counter>
+        <p>{{total}}</p>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script type="application/javascript">
+
+    var counter ={
+        props:["number"],
+        template:`<p @click="handleClick">{{counter}}</p>`,
+        data(){
+            return {
+                counter:this.number
+            }
+        },
+        methods:{
+            handleClick(){
+                this.counter++;
+                this.$emit("change",1)
+            }
+        }
+    }
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            total:3
+        },
+        components:{
+            counter
+        },
+        methods:{
+            handleChange(count){
+               this.total += count
+           }
+        }
+   })
+
+
+</script>
+</html>

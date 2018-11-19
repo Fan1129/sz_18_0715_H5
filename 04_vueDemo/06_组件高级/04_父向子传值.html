@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02_ref属性-1</title>
+    <!--
+        父组件如何向子组件传值
+            父组件通过标签属性的形式向子组件传值。
+            子组件可以通过props属性正常接收到来自父组件的值。
+            但值得注意的是 子组件接收到父组件的值后不应该修改接收到的值，
+                因为该值果然是一个对象，而且被几个子组件共同引用着。那很有可能会导致脏数据
+
+                非得改这数据，应该怎么办？
+                    转存一份，再改
+
+           在vue中组件间传值是要单向数据流的,子组件不能随意修改来着父组件的值。
+    -->
+</head>
+<body>
+    <div id="app">
+        <counter :number="1"></counter>
+        <counter :number="2"></counter>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script type="application/javascript">
+
+    var counter ={
+        props:["number"],
+        template:`<p @click="handleClick">{{counter}}</p>`,
+        data(){
+            return {
+                counter:this.number
+            }
+        },
+        methods:{
+            handleClick(){
+                this.counter++;
+            }
+        }
+    }
+
+    var app = new Vue({
+        el:"#app",
+        components:{
+            counter
+        }
+   })
+
+
+</script>
+</html>
