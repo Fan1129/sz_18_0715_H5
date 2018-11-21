@@ -3,7 +3,7 @@
         <div class="todo-wrap">
            <to-do-header @addToDo="add"></to-do-header>
            <to-do-list :todos="todos" @deleteToDo="deleteToDo"></to-do-list>
-           <to-do-footer :todos="todos"></to-do-footer>
+           <to-do-footer :todos="todos" :selectdAll="selectdAll" :clear="clear"></to-do-footer>
         </div>
     </div>
 </template>
@@ -37,6 +37,16 @@
             },
             deleteToDo(index){
                 this.todos.splice(index,1)
+            },
+            selectdAll(flag){
+                this.todos.forEach((todo)=>{
+                    todo.completed = flag
+                })
+            },
+            clear(){
+                this.todos = this.todos.filter((todo)=>{
+                    return !todo.completed
+                })
             }
         }
     }

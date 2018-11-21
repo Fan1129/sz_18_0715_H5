@@ -1,29 +1,42 @@
 <template>
     <div class="todo-footer">
         <label>
-            <input type="checkbox"/>
+            <input type="checkbox" v-model="checkAll"/>
         </label>
         <span>
-          <span>已完成{{completedConut}}</span> / 全部 <i :style="spanObj">{{todos.length}}</i>
+          <span>已完成 <i :style="iObj2">{{completedConut}}</i> </span>  ；全部 <i :style="iObj">{{todos.length}}</i>
         </span>
-        <button class="btn btn-danger">清除已完成任务</button>
+        <button class="btn btn-danger" @click="clear" v-show="completedConut">清除已完成任务</button>
     </div>
 </template>
 
 <script>
     export default {
         name: "todo-footer",
-        props:["todos"],
+        props:["todos","selectdAll","clear"],
         data(){
             return{
-                spanObj:{
+                iObj:{
                     fontSize:"20px",
                     fontWeight:"500",
                     color:"green"
+                },
+                iObj2:{
+                    fontSize:"20px",
+                    fontWeight:"500",
+                    color:"red"
                 }
             }
         },
         computed:{
+            checkAll:{
+              get(){
+                  return this.completedConut === this.todos.length && this.todos.length>0
+              },
+              set(val){
+                  this.selectdAll(val)
+              }
+            },
             completedConut(){
                return this.todos.reduce((accumulator,currentValue)=>{
                      let step = currentValue.completed ? 1:0;
