@@ -9,11 +9,10 @@
 </template>
 
 <script>
-    import header from "./todo-header";
-    import footer from "./todo-footer";
-    import list from "./todo-list";
+    import header from "./todo-header.vue";
+    import footer from "./todo-footer.vue";
+    import list from "./todo-list.vue";
     import PubSub from "pubsub-js";
-    import util from "@/utils/index.js"
 
     export default {
         name: "app",
@@ -24,14 +23,13 @@
         },
         data(){
             return{
-                /*todos:[
+                todos:[
                     {text:"吃饭",completed:false,id:1},
                     {text:"睡觉",completed:true,id:2},
                     {text:"学猪叫",completed:true,id:3},
                     {text:"玩晓飞",completed:false,id:4},
                     {text:"吃猪脚",completed:false,id:5}
-                ]*/
-                todos:[]
+                ]
             }
         },
         methods:{
@@ -52,29 +50,14 @@
                 })
             }
         },
-        mounted(){
+       mounted(){
          /* this.bus.$on("deleteToDo",(index)=>{
             this.deleteToDo(index)
           })*/
          PubSub.subscribe('deleteToDo',  (msg, index)=> {
            this.deleteToDo(index)
-         });
-         // this.todos = JSON.parse(localStorage.getItem("todosKey")||"[]")
-          this.todos = util.readTodo();
-       },
-        watch:{
-          /*todos(val){
-              localStorage.setItem("todosKey",JSON.stringify(val))
-          }*/
-          todos:{
-            deep: true,
-           /* handler: function (val) {
-              // localStorage.setItem("todosKey",JSON.stringify(val))
-              util.saveTodo(val)
-            },*/
-            handler:util.saveTodo
-          }
-        }
+         })
+       }
     }
 </script>
 

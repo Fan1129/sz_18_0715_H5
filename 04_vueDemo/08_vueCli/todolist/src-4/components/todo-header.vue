@@ -5,8 +5,7 @@
 </template>
 
 <script>
-    import util from "@/utils"
-    let flag =util.readFlag();
+    let key =6;
     export default {
         name: "todo-header",
         data(){
@@ -25,11 +24,11 @@
                 }
                 //封装一个对象
                 const todo={
-                    id:flag++,
+                    id:key++,
                     text,
                     completed:false
                 }
-                util.saveFlag(flag)
+                console.log(todo)
                 //塞入todos中
                 this.$emit("addToDo",todo)
                 //清空输入框
