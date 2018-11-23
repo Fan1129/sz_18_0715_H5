@@ -11,13 +11,12 @@
           <div class="list-group">
             <router-link to="/about" class="list-group-item">About</router-link>
             <router-link to="/home" class="list-group-item">Home</router-link>
-            <router-link to="/damu/123123123?a=12131&b=2" class="list-group-item" >damu</router-link>
+            <router-link to="/about/damu" class="list-group-item">damu</router-link>
+
           </div>
         </div>
         <div class="col-xs-6">
-          <keep-alive>
-            <router-view></router-view>
-          </keep-alive>
+          <router-view></router-view>
         </div>
       </div>
     </div>

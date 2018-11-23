@@ -1,10 +1,13 @@
 <template>
-    <p>about</p>
+  <input type="text">
 </template>
 
 <script>
     export default {
-        name: "about"
+        name: "about",
+        mounted(){
+          console.log("about")
+        }
     }
 </script>
 
