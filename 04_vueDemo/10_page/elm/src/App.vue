@@ -27,10 +27,20 @@
 </script>
 
 <style lang="stylus">
+    @import "./common/mixin"
     .tap
+      height 40px
+      line-height 40px
       display flex
-      background pink
+      border-1px(rgba(7,17,27,.1))
       .tapItem
           flex 1
           text-align center
+          font-size 14px
+          a
+            text-decoration none
+            &.active
+              color rgb(240 20 20)
+
+
 </style>

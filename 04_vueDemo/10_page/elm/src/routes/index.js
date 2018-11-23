@@ -6,4 +6,6 @@ export default [
   {path:"/comments",component:comments},
   {path:"/food",component:food},
   {path:"/shop",component:shop},
+  {path:"/",redirect:"/food"},
+
 ]
