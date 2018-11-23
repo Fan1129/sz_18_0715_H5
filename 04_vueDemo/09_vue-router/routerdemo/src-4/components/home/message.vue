@@ -4,12 +4,9 @@
         <li v-for="(item,index) in messages" :key="item.id">
           <router-link :to="`/home/message/messageDetail/${item.id}`">
             {{item.titile}}
-            <input type="button" value="push" @click="push(item.id)">
-            <input type="button" value="replace" @click="replace(item.id)">
           </router-link>
         </li>
       </ul>
-      <input type="button" value="back" @click="back">
       <router-view></router-view>
     </div>
 </template>
@@ -33,17 +30,6 @@
             {id: 6, titile: "message06"}
           ]
         },1000)
-      },
-      methods:{
-        push(id){
-          this.$router.push(`/home/message/messageDetail/${id}`)
-        },
-        replace(id){
-          this.$router.replace(`/home/message/messageDetail/${id}`)
-        },
-        back(){
-          this.$router.back()
-        }
       }
     }
 </script>
