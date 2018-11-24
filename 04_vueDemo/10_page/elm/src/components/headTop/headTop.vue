@@ -30,12 +30,43 @@
           <span class="icon-keyboard_arrow_right bulltin_arrow"></span>
         </div>
         <div class="bg"></div>
+        <div class="mask">
+          <div class="content">
+            <div class="main">
+                <h2 class="title">津味园（尚硅谷）</h2>
+                <div class="stars-wrap" >
+                  <stars class="stars-24"></stars>
+                </div>
+                <info></info>
+                <list></list>
+                <info>
+                  <span class="text">商家公告</span>
+                </info>
+                <div class="gg">
+                  粥品香坊其烹饪粥料的秘方源于中国千年古法，在融和现代制作工艺，由世界烹饪大师屈浩先生领衔研发。坚守纯天然、0添加的良心品质深得消费者青睐，发展至今成为粥类的引领品牌。是2008年奥运会和2013年园博会指定餐饮服务商
+                </div>
+            </div>
+          </div>
+          <div class="footer">
+            <span class="icon-close"></span>
+          </div>
+        </div>
     </div>
 </template>
 
 <script>
-    export default {
-        name: "headTop"
+  import info from "@/components/headTop/info/info.vue"
+  import list from "@/components/headTop/list/list.vue"
+  import stars from "@/components/headTop/stars/stars.vue"
+
+
+  export default {
+        name: "headTop",
+        components:{
+          info,
+          list,
+          stars
+        }
     }
 </script>
 
@@ -148,8 +179,6 @@
           position absolute
           bottom 4px
           right 12px
-
-
       .bg
         position absolute
         left 0
@@ -160,4 +189,48 @@
         background-image url("http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg")
         background-size 100% 100%
         z-index -1
+      .mask
+        position fixed
+        left 0
+        top 0
+        width 100%
+        height 100%
+        background rgba(7,17,27,.8)
+        z-index 99
+        overflow auto
+        .content
+          clearfix()
+          min-height 100%
+          overflow hidden
+          .main
+            margin-top 64px
+            padding-bottom 96px
+            text-align center
+            .title
+              font-size 16px
+              color rgb(255,255,255)
+              font-weight 700
+              line-height 16px
+            .stars-wrap
+              height 24px
+              margin-top 16px
+              margin-bottom 28px
+            .gg
+              width 80%
+              padding 0 12px
+              margin 0 auto
+              font-size 12px
+              font-weight 200
+              color rgb(255,255,255)
+              line-height 24px
+              margin-top 24px
+        .footer
+          height 96px
+          line-height 96px
+          text-align center
+          margin-top -96px
+          font-size 32px
+          color rgba(255,255,255,.5)
+
+
 </style>
