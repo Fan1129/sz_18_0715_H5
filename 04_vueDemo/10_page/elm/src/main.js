@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from "vue-router"
 import router from "@/router"
+import "@/common/style.styl"
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
